@@ -1,0 +1,168 @@
+
+/* ===== Основний фон ===== */
+body {
+  background: linear-gradient(135deg, #050b18, #0a1930, #071225);
+  color: #e6f3ff;
+  font-family: "Segoe UI", Arial, sans-serif;
+  min-height: 100vh;
+  padding: 30px 15px;
+}
+
+/* ===== Контейнер таблиці ===== */
+.table-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 2px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #164e80, #00bfff, #164e80);
+  box-shadow:
+    0 0 15px rgba(0, 191, 255, 0.15),
+    0 15px 40px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+}
+
+/* ===== Таблиця ===== */
+.styled-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  color: #e6f3ff;
+  background-color: #0b1628;
+}
+
+/* ===== Заголовок ===== */
+.styled-table thead tr {
+  background: linear-gradient(135deg, #123b65, #087ca7);
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.styled-table th {
+  padding: 20px 16px;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: left;
+  border-bottom: 2px solid #29c5ff;
+  text-shadow: 0 0 10px rgba(0, 191, 255, 0.35);
+}
+
+/* ===== Комірки ===== */
+.styled-table td {
+  padding: 17px 16px;
+  border-bottom: 1px solid rgba(76, 161, 255, 0.12);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+/* ===== Чергування кольорів ===== */
+.styled-table tbody tr:nth-child(odd) {
+  background-color: #101f35;
+}
+
+.styled-table tbody tr:nth-child(even) {
+  background-color: #0b1729;
+}
+
+/* ===== Анімація наведення ===== */
+.styled-table tbody tr {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+
+.styled-table tbody tr:hover {
+  background-color: #173657;
+  transform: scale(1.008);
+  box-shadow:
+    inset 4px 0 0 #00c8ff,
+    0 4px 18px rgba(0, 191, 255, 0.12);
+  cursor: pointer;
+}
+
+.styled-table tbody tr:hover td {
+  color: #ffffff;
+}
+
+/* ===== Оцінка ===== */
+.rating {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 8px;
+  background: rgba(0, 191, 255, 0.12);
+  color: #56d8ff;
+  font-weight: 700;
+  box-shadow: 0 0 12px rgba(0, 191, 255, 0.08);
+}
+
+/* ===== Бейджі статусу ===== */
+.badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.badge.in-stock {
+  color: #7fffd4;
+  background: rgba(0, 255, 170, 0.1);
+  border: 1px solid rgba(0, 255, 170, 0.35);
+  box-shadow: 0 0 10px rgba(0, 255, 170, 0.08);
+}
+
+.badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px rgba(0, 191, 255, 0.2);
+}
+
+/* ===== Анімація появи таблиці ===== */
+@keyframes tableAppear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.table-container {
+  animation: tableAppear 0.7s ease-out both;
+}
+
+/* ===== Адаптація для телефонів ===== */
+@media (max-width: 700px) {
+  .table-container {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .styled-table {
+    min-width: 650px;
+  }
+
+  .styled-table th,
+  .styled-table td {
+    padding: 12px;
+    font-size: 13px;
+  }
+}
+
+/* ===== Доступність: менше анімацій ===== */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
